@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smnetcore.Web.Standalone", "Smnetcore.Web.Standalone\Smnetcore.Web.Standalone.csproj", "{ECB2B31C-2154-4CBA-80E4-53427F885A2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Smnetcore.Rene", "Smnetcore.Rene", "{B3535BE2-D244-4E0F-BF8D-2E7BE8B21F74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smnetcore.Rene.Console", "Smnetcore.Rene.Console\Smnetcore.Rene.Console.csproj", "{E10D1F61-5A1E-4354-8C29-1269DE055599}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
