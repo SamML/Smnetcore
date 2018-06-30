@@ -15,22 +15,22 @@ namespace Smnetcore.Rene.Core
     {
   
     public static IConfigurationRoot Configuration {get; private set; }
-    public static Serilog.ILogger Logger {get; set;}
-
         
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-              Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            .Enrich.FromLogContext()
+
+            try { 
+                 DateTime Date = new DateTime();
+              Log.Logger = new LoggerConfiguration()
+             .MinimumLevel.Debug()
+             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+             .Enrich.FromLogContext()
              .WriteTo.Console()
-             .WriteTo.File("Log-StartupRene-{Date}.txt", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz}")
+             .WriteTo.File($"Log-StartupRene-{Date}.txt", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz}")
              .CreateLogger();
             
 
@@ -64,7 +64,7 @@ namespace Smnetcore.Rene.Core
                 env = (String.IsNullOrEmpty(env)) ? "Development" : env;
             }
             
-            Console.WriteLine("Environment: {0}", env);
+           Log.Logger.Information("Environment: {0}", env);
 
               /** DO
              * Configuration sources loading. 
@@ -89,7 +89,7 @@ namespace Smnetcore.Rene.Core
             IConfiguration config = Configuration.Build();
             String[] reneWebhostArgs = new string[0];
             
-            ReneWebhost.Launch(reneWebhostArgs, config.GetSection("ReneWebhostConfig"), Logger);
+            ReneWebhost.Launch(reneWebhostArgs, config.GetSection("ReneWebhostConfig"), Log.Logger);
 
             Console.ReadLine();
             //Console.WriteLine("Launching Rene Identity Server...");
@@ -104,6 +104,13 @@ namespace Smnetcore.Rene.Core
             //Console.ReadKey(true);
 
             //var services = new ServiceCollection();
+                }
+            catch (Exception e)
+            {
+            Log.Error("Main Program Error");
+
+            }
+           
         }
     }
 }

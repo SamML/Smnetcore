@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using Serilog.AspNetCore;
 using System;
 using System.IO;
 using System.Net;
@@ -15,38 +14,38 @@ namespace Smnetcore.Rene.Webhost
     public class ReneWebhost
     {
         public static IConfiguration ReneWebhostConfig { get; private set; }
-        public static Serilog.ILogger Logger;
+        
 
         public static void Launch(string[] args, IConfigurationSection reneWebhostConfig, ILogger logger)
         {
-            Logger = logger;
+           
+            Log.Logger = logger;
             ReneWebhostConfig = reneWebhostConfig;
             CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-             Logger.Information("Starting web host");
-              try {
-        return ReneWebhost.CreateReneBuilder(args).ConfigureServices(services => services.AddLogging())
-                // Use Serilog
-                .UseSerilog(Logger,true)
-                // Evitar inicio de hospedaje
-                .UseSetting(WebHostDefaults.PreventHostingStartupKey, "true")
-                .UseStartup<StartupRene>();
+            Log.Information("Starting web host");
+            try
+            {
+                return CreateReneBuilder(args)
+                        // Use Serilog
+                        // Evitar inicio de hospedaje
+                        
+                        .UseSetting(WebHostDefaults.PreventHostingStartupKey, "true").ConfigureServices(services =>    services.AddSingleton<Serilog.ILogger>(Log.Logger))
+                        .UseStartup<StartupRene>().UseSerilog();
+            }
+            catch (Exception e)
+            {
+                Log.Fatal(e, "Host terminated unexpectedly");
+                return null;
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
-
-        catch (Exception e) {
-             Log.Fatal(e, "Host terminated unexpectedly");
-            return null;
-        }
-
-        finally {
-             Log.CloseAndFlush();
-        }
-}
-
-       
 
         public static IWebHostBuilder CreateReneBuilder() =>
             CreateReneBuilder(args: null);
@@ -76,7 +75,7 @@ namespace Smnetcore.Rene.Webhost
             Console.WriteLine("CreateReneBuilder: ..configure Logging");
             Console.WriteLine("CreateReneBuilder: ..configure IIS integration");
             Console.WriteLine("CreateReneBuilder: ..configure to use ASP .NET Core default Service Provider");
-            
+
             var builder = new WebHostBuilder()
                    .UseKestrel(
                     options =>
@@ -117,6 +116,10 @@ namespace Smnetcore.Rene.Webhost
                     })
 
                     .UseIISIntegration()
+                    .ConfigureServices(servicesCollection =>
+            {
+                servicesCollection.AddSingleton<Serilog.ILogger>(Log.Logger);              
+            })
                     .UseDefaultServiceProvider((context, options) =>
                     {
                         options.ValidateScopes = context.HostingEnvironment.IsDevelopment();
@@ -126,7 +129,7 @@ namespace Smnetcore.Rene.Webhost
             {
                 builder.UseConfiguration(new ConfigurationBuilder().AddCommandLine(args).Build());
             }
-            
+
             return builder;
         }
 
