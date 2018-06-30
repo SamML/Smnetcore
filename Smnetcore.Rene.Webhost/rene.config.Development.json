@@ -1,0 +1,21 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-smnetcore.trash-A1F6BED7-A067-4479-8EA3-CDE6024D4A42;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+
+  "ReneConfig": {
+    "SettingA": "ValueA",
+    "ExceptionHandlerUri": "/Home/Error"
+  },
+  "Section2": {
+    "SettingC": "ValueC"
+  }
+
+}
+

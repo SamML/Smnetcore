@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smnetcore.Web.Standalone", "Smnetcore.Web.Standalone\Smnetcore.Web.Standalone.csproj", "{ECB2B31C-2154-4CBA-80E4-53427F885A2B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Smnetcore.Rene", "Smnetcore.Rene", "{17E4AAD0-D689-4F50-860B-1FA68F9E4BF6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Smnetcore.Rene", "Smnetcore.Rene", "{B3535BE2-D244-4E0F-BF8D-2E7BE8B21F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smnetcore.Rene.Core", "Smnetcore.Rene.Core\Smnetcore.Rene.Core.csproj", "{3E72DDD5-E111-438E-BB64-BBA88DCE05BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smnetcore.Rene.Console", "Smnetcore.Rene.Console\Smnetcore.Rene.Console.csproj", "{E10D1F61-5A1E-4354-8C29-1269DE055599}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smnetcore.Rene.Webhost", "Smnetcore.Rene.Webhost\Smnetcore.Rene.Webhost.csproj", "{FDFB8EF3-B5A9-443F-BC99-726D88CD6EEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,19 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ECB2B31C-2154-4CBA-80E4-53427F885A2B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E10D1F61-5A1E-4354-8C29-1269DE055599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E72DDD5-E111-438E-BB64-BBA88DCE05BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E72DDD5-E111-438E-BB64-BBA88DCE05BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E72DDD5-E111-438E-BB64-BBA88DCE05BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E72DDD5-E111-438E-BB64-BBA88DCE05BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDFB8EF3-B5A9-443F-BC99-726D88CD6EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDFB8EF3-B5A9-443F-BC99-726D88CD6EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDFB8EF3-B5A9-443F-BC99-726D88CD6EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDFB8EF3-B5A9-443F-BC99-726D88CD6EEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E72DDD5-E111-438E-BB64-BBA88DCE05BB} = {17E4AAD0-D689-4F50-860B-1FA68F9E4BF6}
+		{FDFB8EF3-B5A9-443F-BC99-726D88CD6EEA} = {17E4AAD0-D689-4F50-860B-1FA68F9E4BF6}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {29EAE9B5-D566-4576-AFE6-D226AE2C6546}
+		SolutionGuid = {69EF14EF-BD99-4D0C-BC2B-071BDECE7952}
 	EndGlobalSection
 EndGlobal

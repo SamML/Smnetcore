@@ -1,0 +1,44 @@
+{
+  "ReneIdentityServerConfig": {
+    "MaxConcurrentConnections": 100,
+    "MaxConcurrentUpgradedConnections": 100,
+    "MaxRequestBodySizeMultiplier": 10,
+    "HttpPort": "9966",
+    "HttpsPort": "9977",
+    "HttpsPort": "9016",
+    "CertificateConfig": {
+      "CertificateFileName": "localhost.pfx",
+      "CertificateSecret": "Developer00"
+    },
+    "ExceptionHandlerUri": "/Home/Error",
+    "ConnectionStrings": {
+      "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-smnetcore-A1F6BED7-A067-4479-8EA3-CDE6024D4A42;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  },
+  "ReneWebhostConfig": {
+    "MaxConcurrentConnections": 100,
+    "MaxConcurrentUpgradedConnections": 100,
+    "MaxRequestBodySizeMultiplier": 10,
+    "HttpPort": "9006",
+    "HttpsPort": "9016",
+    "CertificateConfig": {
+      "CertificateFileName": "localhost.pfx",
+      "CertificateSecret": "Developer00"
+    },
+    "ExceptionHandlerUri": "/Home/Error",
+    "ConnectionStrings": {
+      "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-smnetcore-A1F6BED7-A067-4479-8EA3-CDE6024D4A42;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  },
+
+  "Global": {
+    "Environment": "Development"
+  },
+
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
